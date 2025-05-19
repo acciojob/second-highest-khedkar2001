@@ -4,7 +4,7 @@ function secondHighest(arr) {
   let max = -Infinity;
   let second = -Infinity;
 
-  for (const num of arr) {
+  for (let num of arr) {
     if (num > max) {
       second = max;
       max = num;
@@ -15,3 +15,16 @@ function secondHighest(arr) {
 
   return second === -Infinity ? -Infinity : second;
 }
+
+// Automatically prompt and alert logic for Cypress
+(function () {
+  const n = parseInt(prompt("Enter number of elements:"), 10);
+  const arr = [];
+
+  for (let i = 0; i < n; i++) {
+    arr.push(parseInt(prompt(`Enter element ${i + 1}:`), 10));
+  }
+
+  const result = secondHighest(arr);
+  alert(String(result)); // Important: pass string for Cypress to capture
+})();
